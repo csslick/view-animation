@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>View Animation</title>
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <script src="https://unpkg.com/enter-view"></script>
+ <style>
+ /* css animation library 2019.07-19 */
+.fade-slide-down{
+  animation-name: fade-slide-down;
+  animation-duration: 0.6s;
+  animation-delay: 0.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;    
+  opacity: 0;
+}
+
+.fade-slide-right{
+  animation-name: fade-slide-right;
+  animation-duration: 0.6s;
+  animation-delay: 0.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;    
+  opacity: 0;
+}
+
+.ani-delay_1{ animation-delay: 1s;}
+.ani-delay_1_5{ animation-delay: 1.5s;}
+.ani-delay_2{ animation-delay: 2s;}
+
+@keyframes fade-slide-down {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-slide-right {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+ </style>
+  <style>
+    *{
+      margin: 0;padding: 0;
+      box-sizing: border-box;
+    }
+    section{
+      width: 100%;
+      height: 100vh;
+      background: #6fefef;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    section > h1{
+      background: #ff0;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      transition: 1s;
+      opacity: 0;
+    }
+    .s1{ background: #3ff;}
+    .s2{ background: pink;}
+    .s3{ background: #36f;}
+    
+    .entered{
+      background: red;
+    }
+    
+  </style>
+</head>
+<body>
+  <section class="s1">
+    <h1 class='block1'>s1</h1>
+  </section>
+  <section class="s2">
+    <h1 class='block2'>s2</h1>
+  </section>
+  <section class="s3">
+    <h1 class='block3'>s3</h1>
+  </section>  
+  
+  <script>
+    enterView({
+        selector: '.block1',
+        offset: 0.5,
+        enter: function(el) {
+            el.classList.add('fade-slide-down');
+        },
+    }); 
+    
+    enterView({
+        selector: '.block2',
+        offset: 0.5,
+        enter: function(el) {
+            el.classList.add('fade-slide-right');
+        },
+    });  
+
+    enterView({
+        selector: '.block3',
+        offset: 0.5,
+        enter: function(el) {
+            el.classList.add('fade-slide-down');
+        },
+    });  
+  </script>
+  
+</body>
+</html>
