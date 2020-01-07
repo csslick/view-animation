@@ -52,10 +52,10 @@
   
   <script>
     enterView({
-        selector: '.block1',
-        offset: 0.5,
+        selector: '.block1',  // 화면에 진입했을때 애니메이션이 될 요소명
+        offset: 0.5,          // 시작 지연시간(ms)
         enter: function(el) {
-            el.classList.add('fade-slide-down');
+            el.classList.add('fade-slide-down');  // 애니메이션 클래스 명(CSS)
         },
     }); 
     
